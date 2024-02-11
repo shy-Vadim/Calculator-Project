@@ -8,7 +8,7 @@ const display = document.querySelector("#display")
 
 //OBJECTS
 const calculator = {
-  display: "00000000",
+  display: "0",
 
   add(num1, num2) {
     return num1 + num2
