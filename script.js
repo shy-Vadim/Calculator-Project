@@ -5,6 +5,9 @@ let number1
 
 //DOM SELECTORS
 const display = document.querySelector("#display")
+const numbers = document.querySelectorAll(".number")
+const operators = document.querySelectorAll(".operator")
+const controls = document.querySelectorAll(".controls")
 
 //OBJECTS
 const calculator = {
