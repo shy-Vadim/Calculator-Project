@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "Seven\ Segment";
+  src: url(fonts/Seven\ Segment.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+display: flex;
+justify-content: center;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+#display {
+  font-size: larger;
+  font-weight: 500;
+  font-family: "Seven\ Segment";
+}
