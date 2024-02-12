@@ -5,9 +5,10 @@ let number1 = ""
 
 //DOM
 const display = document.querySelector("#display")
-const numbers = document.querySelectorAll(".number")
-const operators = document.querySelectorAll(".operator")
-const controls = document.querySelectorAll(".controls")
+  , numbers = document.querySelectorAll(".number")
+  , operators = document.querySelectorAll(".operator")
+  , reset = document.querySelector("#reset")
+  , operate = document.querySelector("#operate");
 
 numbers.forEach((currentNumber) => {
   currentNumber.addEventListener("click", () => {
@@ -31,6 +32,8 @@ operators.forEach((currentOperator) => {
   })
 })
 
+reset.addEventListener("click", () => calculator.reset())
+
 //OBJECTS
 const calculator = {
   display: "0",
@@ -52,7 +55,7 @@ const calculator = {
   },
 
   operate() {
-    if (number1 != undefined && number2 != undefined){
+    if (number1 != "" && number2 != ""){
       number1 = String(operator(number1, number2))
       number2 = ""
       operator = undefined
@@ -65,6 +68,14 @@ const calculator = {
       calculator.display = NaN
       updateDisplay()
     }
+  },
+
+  reset() {
+    number1 = ""
+    number2 = ""
+    operator = undefined
+    calculator.display = "0"
+    updateDisplay()
   },
 }
 
