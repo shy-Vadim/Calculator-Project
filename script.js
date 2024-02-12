@@ -8,10 +8,11 @@ const display = document.querySelector("#display")
   , numbers = document.querySelectorAll(".number")
   , operators = document.querySelectorAll(".operator")
   , reset = document.querySelector("#reset")
-  , operate = document.querySelector("#operate");
-
-numbers.forEach((currentNumber) => {
-  currentNumber.addEventListener("click", () => {
+  , operate = document.querySelector("#operate")
+  , point = document.querySelector("#point");
+  
+  numbers.forEach((currentNumber) => {
+    currentNumber.addEventListener("click", () => {
     if (number1.length < 8 && operator == undefined) {
       number1 += currentNumber.id
       calculator.display = number1
@@ -22,6 +23,14 @@ numbers.forEach((currentNumber) => {
       updateDisplay()
     }
   })
+})
+
+point.addEventListener("click", () => {
+  if (operator == undefined && number1.indexOf(".") == -1) {
+    number1 += "."
+  } else if (operator != undefined && number2.indexOf(".") == -1) {
+    number2 += "."
+  }
 })
 
 operators.forEach((currentOperator) => {
