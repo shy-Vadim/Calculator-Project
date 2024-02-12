@@ -55,6 +55,7 @@ const calculator = {
   },
 
   divide(num1, num2) {
+    if (num2 == "0") return "ERROR!"
     return +num1 / +num2
   },
 
@@ -73,7 +74,7 @@ const calculator = {
       number1 = ""
       number2 = ""
       operator = undefined
-      calculator.display = NaN
+      calculator.display = "0"
       updateDisplay()
     }
   },
