@@ -36,7 +36,7 @@ operators.forEach((currentOperator) => {
 })
 
 reset.addEventListener("click", () => calculator.reset())
-operate.addEventListener("click", () => calculator.operate())
+operate.addEventListener("click", () => {if (operator != undefined) calculator.operate()})
 
 //OBJECTS
 const calculator = {
@@ -89,8 +89,12 @@ const calculator = {
 
 // FUNCTIONS
 function updateDisplay() {
-  if (calculator.display.length <= 8) {
-    display.textContent = calculator.display
+  let result = calculator.display
+
+  if (result.length <= 8) {
+    display.textContent = result
+  } else if (result.indexOf(".") != -1 && result.indexOf(".") < 6) {
+    display.textContent = result.slice(0, 8)
   } else {
     display.textContent = NaN
   }
