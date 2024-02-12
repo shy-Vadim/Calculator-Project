@@ -35,13 +35,30 @@ point.addEventListener("click", () => {
 
 operators.forEach((currentOperator) => {
   currentOperator.addEventListener("click", () => {
-    if (operator == undefined) {
+    if (operator == undefined ) {
       operator = calculator[currentOperator.id]
     } else {
       calculator.operate()
       operator = calculator[currentOperator.id]
     }
   })
+})
+
+document.getElementById("substract").addEventListener("click", () => {
+  if (number1.length == 0 && operator == undefined) {
+    number1 += "-"
+    calculator.display = number1
+    updateDisplay()
+  } else if (number2.length == 0 && operator != undefined) {
+    number2 += "-"
+    calculator.display = number2
+    updateDisplay()
+  } else if (operator == undefined ) {
+    operator = calculator[substract.id]
+  } else {
+    calculator.operate()
+    operator = calculator[substract.id]
+  }
 })
 
 reset.addEventListener("click", () => calculator.reset())
