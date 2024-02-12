@@ -9,16 +9,24 @@ const numbers = document.querySelectorAll(".number")
 const operators = document.querySelectorAll(".operator")
 const controls = document.querySelectorAll(".controls")
 
-numbers.forEach((number) => {
-  number.addEventListener("click", () => {
+numbers.forEach((currentNumber) => {
+  currentNumber.addEventListener("click", () => {
     if (number1.length < 8 && operator == undefined) {
-      number1 += number.id
+      number1 += currentNumber.id
       calculator.display = number1
       updateDisplay()
     } else if (number2.length < 8 && operator !== undefined) {
-      number2 += number.id
+      number2 += currentNumber.id
       calculator.display = number2
       updateDisplay()
+    }
+  })
+})
+
+operators.forEach((currentOperator) => {
+  currentOperator.addEventListener("click", () => {
+    if (operator == undefined) {
+      operator = calculator[currentOperator.id]
     }
   })
 })
@@ -44,11 +52,19 @@ const calculator = {
   },
 
   operate() {
-    number1 = String(operator(number1, number2))
-    number2 = ""
-    operator = undefined
-    calculator.display = number1
-    updateDisplay()
+    if (number1 != undefined && number2 != undefined){
+      number1 = String(operator(number1, number2))
+      number2 = ""
+      operator = undefined
+      calculator.display = number1
+      updateDisplay()
+    } else {
+      number1 = ""
+      number2 = ""
+      operator = undefined
+      calculator.display = NaN
+      updateDisplay()
+    }
   },
 }
 
