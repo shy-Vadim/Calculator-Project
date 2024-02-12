@@ -9,7 +9,8 @@ const display = document.querySelector("#display")
   , operators = document.querySelectorAll(".operator")
   , reset = document.querySelector("#reset")
   , operate = document.querySelector("#operate")
-  , point = document.querySelector("#point");
+  , point = document.querySelector("#point")
+  , backspace = document.querySelector("#backspace");
   
   numbers.forEach((currentNumber) => {
     currentNumber.addEventListener("click", () => {
@@ -59,6 +60,21 @@ document.getElementById("substract").addEventListener("click", () => {
     calculator.operate()
     operator = calculator[substract.id]
   }
+})
+
+backspace.addEventListener("click", () => {
+  if (operator == undefined) {
+    number1 = number1.slice(0, -1)
+    if (number1 == "") {
+      calculator.display = "0"
+    } else {
+      calculator.display = number1
+    }
+  } else if (operator != undefined) {
+    number2 = number2.slice(0, -1)
+    calculator.display = number2
+  }
+  updateDisplay()
 })
 
 reset.addEventListener("click", () => calculator.reset())
