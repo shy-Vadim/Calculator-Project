@@ -28,6 +28,9 @@ operators.forEach((currentOperator) => {
   currentOperator.addEventListener("click", () => {
     if (operator == undefined) {
       operator = calculator[currentOperator.id]
+    } else {
+      calculator.operate()
+      operator = calculator[currentOperator.id]
     }
   })
 })
@@ -60,6 +63,10 @@ const calculator = {
       number1 = String(operator(number1, number2))
       number2 = ""
       operator = undefined
+      calculator.display = number1
+      updateDisplay()
+    } else if (number1 != "" && number2 == "") {
+      number1 = String(operator(number1, number1))
       calculator.display = number1
       updateDisplay()
     } else {
