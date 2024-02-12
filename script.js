@@ -33,6 +33,7 @@ operators.forEach((currentOperator) => {
 })
 
 reset.addEventListener("click", () => calculator.reset())
+operate.addEventListener("click", () => calculator.operate())
 
 //OBJECTS
 const calculator = {
