@@ -11,12 +11,12 @@ const controls = document.querySelectorAll(".controls")
 
 numbers.forEach((number) => {
   number.addEventListener("click", () => {
-    if (number1.length <= 8 && operator == undefined) {
+    if (number1.length < 8 && operator == undefined) {
       number1 += number.id
       calculator.display = number1
       updateDisplay()
-    } else if (number2.length <= 8 && operator !== undefined) {
-      number1 += number.id
+    } else if (number2.length < 8 && operator !== undefined) {
+      number2 += number.id
       calculator.display = number2
       updateDisplay()
     }
